@@ -4,19 +4,19 @@ const fs = require("fs");
 const server = http.createServer((req, res)=>{
     res.writeHead(200, {'Content-Type': 'text/html'});
 
-    let path = "./views"
+    let path = ""
     switch(req.url){
         case "/":
-            path += "/index.html";
+            path = "./index.html";
             break;
         case "/about":
-            path += "/about.html";
+            path = "./about.html";
             break;
         case "/contact-me":
-            path += "/contact-me.html"
+            path = "./contact-me.html"
             break;
         default :
-            path += "/404.html"
+            path = "./404.html"
             break;
     }
     fs.readFile(path, (err, data)=>{
